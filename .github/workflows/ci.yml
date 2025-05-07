@@ -1,0 +1,16 @@
+name: Release build linux
+run-name: Release build of CyptoPP library
+on: [push]
+
+jobs:
+  ubuntu_24_04_amd64:
+    runs-on: self-hosted
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4
+        with:
+          fetch-tags: true
+          fetch-depth: 0
+      
+      - run: make -j4
+      - run: echo "Completed !!!"
